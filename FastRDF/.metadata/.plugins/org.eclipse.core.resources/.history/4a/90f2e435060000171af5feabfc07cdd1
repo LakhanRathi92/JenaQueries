@@ -1,0 +1,45 @@
+import java.io.FileWriter;
+import java.io.IOException;
+
+import org.apache.jena.rdf.model.Model ;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.riot.* ;
+import org.apache.jena.vocabulary.RDF;
+
+
+
+
+public class CreateFastRDFVocabulary {
+
+    public static void main(String[] args)
+    {
+      
+    	String fastRDFLiteralsURI    = "http://www.Dfki/FastRDFLiterals";
+
+    	// create an empty Model
+    	Model model = ModelFactory.createDefaultModel();
+    	
+    	Resource fastRDFLiterals = model.createResource(fastRDFLiteralsURI);
+    	fastRDFLiterals.addProperty(RDF.type, "integer");
+    	fastRDFLiterals.addProperty(RDF.type, "float");
+    	fastRDFLiterals.addProperty(RDF.type, "uid");
+    	fastRDFLiterals.addProperty(RDF.type, "constantLiteral");
+    	
+    	
+    	
+    	FileWriter out;
+		try {
+			out = new FileWriter( "fastRDF.txt" );
+    	    model.write( out, "RDF/XML-ABBREV" );
+  	       out.close();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	   }
+    
+}
+

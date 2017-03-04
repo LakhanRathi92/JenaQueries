@@ -1,0 +1,66 @@
+
+class Node {
+	int nodeID;	
+	Node left;
+	Node right;
+}
+
+
+
+public class BinaryTree {
+
+	public static Node root = null;
+	
+	BinaryTree(int ID){
+		Node root = new Node();
+		root.nodeID = ID;
+	}
+	
+	BinaryTree(){
+		Node root = new Node();
+	}
+	
+	public boolean add(int value){
+		if(root == null)
+		{
+			root = new Node();
+			root.nodeID = value;
+		}
+		else
+		{
+			addNode(value, root);
+		}
+		
+		return true;
+	}
+	
+	private void addNode(int value, Node node){		
+		// Iterate to locate the spot
+		
+		if(value <= node.nodeID){
+			addNode(value, node.left);
+		}
+		else
+		{
+			addNode(value, node.right);
+		}
+		
+		Node nodex = new Node();
+		nodex.nodeID = value;
+		
+	}
+	
+	
+	public void printTree(){
+		printTree(root);
+	}
+	
+	/*BFS*/
+	private void printTree(Node start){
+		if(start!=null){
+			System.out.println(" " + start.nodeID);
+			printTree(start.left);
+			printTree(start.right);
+		}
+	}	
+}

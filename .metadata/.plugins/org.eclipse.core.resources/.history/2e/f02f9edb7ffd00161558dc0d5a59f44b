@@ -1,0 +1,83 @@
+
+public class SortingAlgorithms {
+	/*Bubble Sort*/
+	public static void bubbleSort(int arr[])
+	{	
+		for(int i=(arr.length-1); i>=0; i--)
+		{		
+			for(int j=1; j<=i; j++)
+			{
+				if(arr[j-1]>arr[j])
+				{
+					int temp = arr[j-1];
+					arr[j-1]=arr[j];
+					arr[j]=temp;
+				}
+			}
+		}
+		
+		for(int i=0;i<arr.length;i++){
+			System.out.print(arr[i]);
+		}
+	}
+	
+	
+	/*Selection Sort*/
+	
+	/*
+	 * Find min, and then put it in front
+	 * */
+	
+	public static void selectionSort(int arr[]){
+		for(int i=0; i <(arr.length-1); i++)
+		{
+			int min = i;			
+			for(int j=i+1; j<(arr.length); j++)
+			{
+				if(arr[min] > arr[j])
+				{
+					min = j;					
+				}
+			}
+			int temp = arr[i];		
+			arr[i] = arr[min];
+			arr[min] = temp;			
+		}
+		
+		for(int i=0;i<arr.length;i++){
+			System.out.print(arr[i]);
+		}
+	}
+	
+	
+	
+	/*Insertion Sort*/
+	/*
+	 * First element sorted, rest unsorted.
+	 * Move to next element and make it sorted in previous sorted portion
+	 *  [6 3 9 7]
+	 * */
+	
+	public static void insertionSort(int arr[]){
+		for (int i=1; i<arr.length; i++)
+		{
+			int toSort = arr[i];
+			int j = i;
+			
+			while(j>0 && arr[j-1] > toSort){
+				ar[j] = ;
+				j--;
+			}
+		}
+	}
+	
+	
+	
+	
+	/*Heap Sort*/
+	
+	
+	/*Merge Sort*/
+
+
+}

@@ -1,0 +1,26 @@
+import java.io.FileInputStream;
+
+import org.apache.jena.rdf.model.Model ;
+import org.apache.jena.rdf.model.ModelFactory ;
+import org.apache.jena.riot.RDFDataMgr ;
+import org.apache.jena.riot.RDFLanguages ;
+
+
+public class fastRDFCheck {
+
+    public static void main(String[] args)
+    {
+    	Model m = ModelFactory.createDefaultModel() ;
+        // read into the model.
+    	m.read(new FileInputStream("simpsons.ttl"),null,"TTL");
+        
+    	m.read(new FileInputStream("simpsons.ttl"),null,"TTL"2)
+        // Alternatively, use the RDFDataMgr, which reads from the web,
+        // with content negotiation.  Plain names are assumed to be 
+        // local files where file extension indicates the syntax.  
+        
+        Model m2 = RDFDataMgr.loadModel("published.rdf") ;
+        m2.write(System.out);
+    } 
+}
+

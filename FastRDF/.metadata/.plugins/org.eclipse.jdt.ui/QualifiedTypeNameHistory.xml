@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.apache.jena.rdf.model.ModelFactory"/>
+<fullyQualifiedTypeName name="org.apache.jena.rdf.model.Resource"/>
+<fullyQualifiedTypeName name="org.apache.jena.vocabulary.RDF"/>
+<fullyQualifiedTypeName name="java.io.FileWriter"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.io.FileReader"/>
+<fullyQualifiedTypeName name="org.apache.jena.rdf.model.RDFNode"/>
+<fullyQualifiedTypeName name="org.apache.commons.io.IOUtils"/>
+</qualifiedTypeNameHistroy>

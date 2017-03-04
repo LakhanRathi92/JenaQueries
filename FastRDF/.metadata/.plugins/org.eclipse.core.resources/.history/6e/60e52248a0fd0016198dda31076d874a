@@ -1,0 +1,16 @@
+
+public class fastRDFCheck {
+
+	
+	
+	public static void main(String args[]){
+	
+		/*		Write a query to access dynamic information from the fastRDF file
+		 * 	UID retrieve
+		 * 
+		 * */
+		
+	}
+	
+	
+}

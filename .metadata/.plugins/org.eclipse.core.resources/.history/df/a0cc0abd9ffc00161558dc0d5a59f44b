@@ -1,0 +1,45 @@
+
+public class DataStructs {
+	
+	/* LinkedLink Test */
+	public static void main(String[] args){
+	
+		/* Linked List Singly Test */
+		
+		/*
+		SinglyLinkedList singly = new SinglyLinkedList();		
+		singly.printList();
+		singly.Add(1);
+		singly.Add(2);
+		singly.Add(3);
+		singly.Add(4);
+		
+		singly.printList();
+		
+		if(singly.lookup(3)){
+			System.out.println("exists");
+		}
+		else{
+			System.out.println("doesn't exists");
+		}
+		singly.delete(3);		
+		
+		singly.printList();
+		
+		*/
+		
+		
+		
+		/*Binary Search  Tree*/
+		BinaryTree bst = new BinaryTree();
+		bst.add(5);
+		bst.add(3);
+		bst.add(1);
+		bst.add(4);
+		bst.add(7);
+	}
+}
+
+
+
+

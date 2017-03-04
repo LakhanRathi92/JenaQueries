@@ -1,0 +1,151 @@
+
+public class DataStructs {
+	
+	/* LinkedLink Test */
+	public static void main(String[] args){
+		SinglyLinkedList singly = new SinglyLinkedList();
+		
+		singly.printList();
+		/* ADD */
+		singly.Add(1);
+		singly.Add(2);
+		singly.Add(3);
+		singly.Add(4);
+		
+		/* Lookup */
+		if(singly.lookup(3)){
+			System.out.println("exists");
+		}
+		else{
+			System.out.println("doesn't exists");
+		}
+		
+		/* Delete */
+		singly.delete(3);
+		
+		if(singly.lookup(3)){
+			System.out.println("delete fail");
+		}
+		else{
+			System.out.println("succesffuly deleted");
+		}
+	}
+	
+	
+}
+
+
+
+
+/* linkedLists */
+	class LinkNode {
+		
+		int Id;
+		LinkNode next;
+		
+		public LinkNode(){
+		}
+		
+		public LinkNode(int idx){
+			Id = idx;
+		}
+	}
+
+	
+	
+	class SinglyLinkedList {
+		
+		LinkNode head;
+		
+		/* Initialization */
+		public SinglyLinkedList (){
+			head = null;
+		}
+		
+		public SinglyLinkedList (int IDx){
+			head.Id = IDx;
+		}
+		
+		/* add */
+		public boolean Add(int IDx){
+			if (head == null){
+				head = new LinkNode();
+				head.Id = IDx;
+				head.next = null;
+			}
+			else{
+				LinkNode temp = head;
+				/* find last slot */
+				while(temp.next!=null){
+					temp=temp.next;
+				}
+				temp.next= new LinkNode(IDx);
+			}
+			return true;
+		}
+		
+		/* Look up */
+		public boolean lookup(int IDx){
+			
+			if(head == null){
+				return false;
+			}
+			else {
+				if(head.Id == IDx)
+					return true;
+				else{
+					LinkNode temp = head.next;
+					
+					while(temp!=null){
+						if(temp.Id == IDx){
+							return true;
+						}
+						temp=temp.next;
+					}
+					return false;
+				}
+			}			
+		}
+		/* Delete */
+		public boolean delete(int IDx){
+			if(head == null){
+				return false;
+			}
+			else {
+				if(head.Id == IDx){
+					head = null;
+					return true;
+				}
+				else{
+					LinkNode temp = head.next;
+					LinkNode pre = head;
+					
+					while (temp != null) {
+						if(temp.Id == IDx){
+							pre.next = temp.next;
+							return true;
+						}
+						pre = temp;
+						temp=temp.next;
+					}
+					/*Doesn't exist*/
+					return false;
+				}
+			}	
+		}
+		/* Print whole list */
+		public void printList(SinglyLinkedList a){
+			if(a.head == null){
+				System.out.println("Empty");
+			}
+			else{
+				LinkNode temp = head;
+				while( temp!= null){
+					System.out.println("ID" + temp.Id);
+					temp = temp.next;
+				}
+			}
+		}
+		
+		
+}

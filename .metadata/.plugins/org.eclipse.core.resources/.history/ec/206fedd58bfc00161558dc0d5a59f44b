@@ -1,0 +1,42 @@
+
+public class DataStructs {
+	
+	/* LinkedLink Test */
+	public static void main(String[] args){
+	
+		/* Linked List Singly Test */
+		/*
+		SinglyLinkedList singly = new SinglyLinkedList();
+		
+		singly.printList();
+		/* ADD */
+		singly.Add(1);
+		singly.Add(2);
+		singly.Add(3);
+		singly.Add(4);
+		singly.printList();
+
+		
+		/* Lookup */
+		if(singly.lookup(3)){
+			System.out.println("exists");
+		}
+		else{
+			System.out.println("doesn't exists");
+		}
+		
+		/* Delete */
+		singly.delete(3);
+		
+		singly.printList();
+	}
+	
+	*/
+	
+	/* Do it for singly circular, doubly, doubly circular */
+	
+}
+
+
+
+

@@ -1,0 +1,103 @@
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.apache.jena.rdf.model.Model ;
+import org.apache.jena.rdf.model.ModelFactory ;
+import org.apache.jena.rdf.model.RDFNode;
+import org.apache.jena.riot.RDFDataMgr ;
+import org.apache.jena.riot.RDFLanguages ;
+
+import org.apache.jena.query.* ;
+
+public class fastRDFCheck {
+
+    public static void main(String[] args)
+    {
+    	Model m = ModelFactory.createDefaultModel() ;
+        // read into the model.
+    	
+    	
+    	try {
+			m.read(new FileInputStream("published.rdf"),null,"TTL");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        // Alternatively, use the RDFDataMgr, which reads from the web,
+        // with content negotiation.  Plain names are assumed to be 
+        // local files where file extension indicates the syntax.  
+        
+    	
+        m.write(System.out);
+        
+        /*
+         * READ Query
+         * */
+        
+        BufferedReader br = null;
+		
+        try {
+			br = new BufferedReader(new FileReader("query2.txt"));
+		} catch (FileNotFoundException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		
+        String everything = null;
+        try {
+            StringBuilder sb = new StringBuilder();
+            String line = null;
+			try {
+				line = br.readLine();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
+            while (line != null) {
+                sb.append(line);
+                sb.append(System.lineSeparator());
+                try {
+					line = br.readLine();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }
+            everything = sb.toString();
+        } finally {
+            try {
+				br.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }
+        
+        /**/
+        
+        System.out.println("Query : " + everything);
+        
+        String queryString = everything;
+        Query query = QueryFactory.create(queryString) ;
+        
+        try (QueryExecution qexec = QueryExecutionFactory.create(query, m)) {
+          ResultSet results = qexec.execSelect() ;
+          for ( ; results.hasNext() ; )
+          {
+        	  QuerySolution result = results.nextSolution() ;
+        	  RDFNode s=result.get("s");
+              RDFNode p=result.get("p");
+              RDFNode o=result.get("o");
+              System.out.println(" { " + s + " "+ p+ " "+ o+ " . }");
+          }
+        }
+        
+        
+        
+    } 
+}
+

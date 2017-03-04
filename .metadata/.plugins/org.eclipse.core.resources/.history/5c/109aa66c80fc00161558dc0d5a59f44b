@@ -1,0 +1,11 @@
+
+public class Node {
+	
+	public Node(int newID){
+		Id = newID;
+	}
+	
+	int Id;
+	Node left = new Node();
+	Node right = new Node();	
+}

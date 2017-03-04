@@ -1,0 +1,8 @@
+
+public class Node {
+	Node left = new Node();
+	Node right = new Node();
+	
+	public Node(){		
+	}
+}

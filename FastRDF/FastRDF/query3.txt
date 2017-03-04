@@ -1,0 +1,7 @@
+prefix fastRDF: <http://www.dfki.de/fastRDF#>
+
+SELECT ?x
+WHERE
+ { 	
+	?y fastRDF:uid ?x
+ }

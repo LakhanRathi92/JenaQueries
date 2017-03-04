@@ -1,0 +1,102 @@
+
+class Node {
+	int nodeID;	
+	Node left;
+	Node right;
+}
+
+
+
+public class BinaryTree {
+
+	public static Node root = null;
+	
+	BinaryTree(int ID){
+		Node root = new Node();
+		root.nodeID = ID;
+	}
+	
+	BinaryTree(){
+		Node root = new Node();
+	}
+	
+	public boolean add(int value){
+		if(root == null)
+		{
+			root = new Node();
+			root.nodeID = value;
+		}
+		else
+		{
+			addNode(value, root);
+		}
+		
+		return true;
+	}
+	
+	private void addNode(int value, Node node){		
+
+
+		// Iterate to locate the spot		
+		if(value <= node.nodeID){
+			if(node.left != null)
+				addNode(value, node.left);
+			else
+			{
+				Node nodex = new Node();
+				nodex.nodeID = value;	
+				node.left = nodex;
+			}
+		}
+		else if (value > node.nodeID)
+		{   
+			if(node.right!=null)
+				addNode(value, node.right);
+			else 
+			{
+				Node nodex = new Node();
+				nodex.nodeID = value;
+				node.right = nodex;
+			}
+		}
+	}
+	
+	
+	public boolean lookup(int id){
+		boolean exist;
+		
+		if (root == null)
+			exist = false;
+		else
+		{
+			Node temp = root;
+			if(id <= temp.nodeID){
+				
+			}
+		}
+		return exist;
+	}
+	public boolean lookup(int id, Node){
+		
+		return true;
+	}
+	
+	
+	public void printTree(){
+		printTree(root);
+	}
+	
+	/*DF - Print*/
+	private void printTree(Node start){
+		if(start!=null){
+			System.out.println(" " + start.nodeID);
+			printTree(start.left);
+			printTree(start.right);
+		}
+	}
+	
+	/*BF Print*/
+	
+	
+	
+}
