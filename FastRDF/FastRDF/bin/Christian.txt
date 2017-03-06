@@ -1,0 +1,11 @@
+@prefix thisSystem: <http://www.vendorDummy.com/thisSystem#>.
+
+thisSystem:temperatureSensor  a fastRDF:sensor;
+
+thisSystem:tempValue 
+             a  fastrdf:float ;
+             fastrdf:constantLiteral "false"^^xsd:boolean ;
+             fastrdf:uid "1231843"^^xsd:integer .
+
+
+

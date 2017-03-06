@@ -20,8 +20,8 @@ INDEX VERSION 1.129+C:\Users\laku01\thesis\New folder\FastRDF\.metadata\.plugins
 2427601795.index
 4098135500.index
 199079080.index
-140134616.index
 69564303.index
+140134616.index
 68855596.index
 1088351973.index
 1819187697.index

@@ -7,8 +7,6 @@ public class VariableLengthEnc_Dec {
 	public static int MAX_LENGTH = 268435455;
 	
 	public static byte[] Encode(int length){
-		/*Debug*/
-		System.out.println("Encoding " + length);
 		
 		if (length > MAX_LENGTH || length < 0){
 			return null; 
