@@ -1,0 +1,23 @@
+import java.io.Serializable;
+
+public class TableRow implements Serializable{
+	private int uid;
+	private short offset;
+	private short size;
+	
+	public void createRow(int id, short off, short siz){
+		uid = id;
+		offset = off;
+		size = siz;
+	}
+	
+	public int getUID(){
+		return uid;
+	}
+	public int offset(){
+		return offset;
+	}
+	public int size(){
+		return size;
+	}
+}

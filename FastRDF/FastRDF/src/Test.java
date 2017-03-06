@@ -3,6 +3,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.Member;
+import java.util.ArrayList;
 
 import org.apache.jena.rdf.model.Model ;
 import org.apache.jena.rdf.model.ModelFactory ;
@@ -16,8 +19,10 @@ public class Test {
 
     public static void main(String[] args)
     {    	
-    	/*FastRDF false, for encode and decoder test*/
+    	
     	Boolean FASTRDF = false;  
+    	Boolean tableTest = false;
+    	Boolean EncDecTest = false;
     	
     	/* Test to run queries on published and locally stored models */
     	if (FASTRDF)
@@ -68,14 +73,56 @@ public class Test {
 	        System.out.println(string_Result);
 	        }
     	}
+    	
     	//Test for Encoder and Decoder
-    	else
+    	if(EncDecTest)
     	{
     		VariableLengthEnc_Dec.Encode(10);
     		VariableLengthEnc_Dec.Encode(128);
     		VariableLengthEnc_Dec.Encode(256);
     		
     	}
+    	
+    	if(tableTest){
+    		BinaryTranslationTable table = new BinaryTranslationTable();
+    		TableRow row1 = new TableRow();
+    		
+    		row1.createRow(123, (short)0, (short)3);
+    		
+    		TableRow row2 = new TableRow();    		
+    		row2.createRow(456, (short)3, (short)4);
+    		
+    		table.addElement(row1);
+    		table.addElement(row2);
+    		
+    		
+    		byte[] serializedTable = null;
+			try {
+				serializedTable = SerDes.serialize(table);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		
+    		/*Debug*/
+    		try {
+    			BinaryTranslationTable table_des = (BinaryTranslationTable) SerDes.deserialize(serializedTable);
+    			
+    			for(TableRow x : table_des.table){
+    				System.out.println(" UID " + x.getUID());
+    				System.out.print(" offset " + x.getOffset());
+    				System.out.print(" bytes " + x.getSize());
+    			}
+    			
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		
+    	}	
     } 
 }
 

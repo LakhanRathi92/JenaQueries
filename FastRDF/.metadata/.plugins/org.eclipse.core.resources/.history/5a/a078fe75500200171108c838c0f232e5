@@ -1,0 +1,48 @@
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+
+/*
+ * Creates binary translation table for publisher
+ * converts into byteArray to be sent over the network.
+ * 
+ * */
+
+@SuppressWarnings("serial")
+public class BinaryTranslationTable implements Serializable{
+	private ArrayList<TableRow> table = new ArrayList<TableRow>();
+	
+	public void addElement(TableRow rowAdd){
+		table.add(rowAdd);				
+	}
+	
+	public byte[] serialize() throws IOException {
+	    ByteArrayOutputStream out = new ByteArrayOutputStream();
+	    ObjectOutputStream os = new ObjectOutputStream(out);
+	    os.writeObject(table);
+	    return out.toByteArray();
+	}
+	public static Object deserialize(byte[] data) throws IOException, ClassNotFoundException {
+	    ByteArrayInputStream in = new ByteArrayInputStream(data);
+	    ObjectInputStream is = new ObjectInputStream(in);
+	    return is.readObject();
+	}
+	
+	public void printTable(){
+		for(TableRow tr: table){
+			System.out.println("UID " + tr.getUID());
+			System.out.print("Offset" + tr.getOffset());
+			System.out.print("bytes" + tr.getUID());
+		}
+	}
+}
+
+
+
+

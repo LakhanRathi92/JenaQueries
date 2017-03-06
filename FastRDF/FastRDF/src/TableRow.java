@@ -1,4 +1,6 @@
-public class TableRow {
+import java.io.Serializable;
+
+public class TableRow implements Serializable{
 	private int uid;
 	private short offset;
 	private short size;
@@ -7,5 +9,15 @@ public class TableRow {
 		uid = id;
 		offset = off;
 		size = siz;
-	}	
+	}
+	
+	public int getUID(){
+		return uid;
+	}
+	public short getOffset(){
+		return offset;
+	}
+	public short getSize(){
+		return size;
+	}
 }
