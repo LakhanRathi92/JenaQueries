@@ -1,0 +1,42 @@
+import java.nio.ByteBuffer;
+
+public class VariableLengthEnc_Dec {
+
+	
+	public static byte[] Encode(int length){
+		
+		byte[] encodedSizeInBytes;
+		
+		do{
+			int i = 0;
+			encodedSizeInBytes[i] = (byte) (length % 128);			
+			length = length / 128;
+			
+			if(length > 0)
+			{
+				encodedByteSize[i] = encodedByteSize[i] | byte(128);
+			}
+			i++;
+		} while(length > 0);
+		
+		//4 bytes at most
+		//Debug
+
+		for (byte theByte : encodedSizeInBytes)
+		{
+		  System.out.println(Integer.toHexString(theByte));
+		}
+		
+		
+		return b.array();		
+	}
+	
+	
+	public static int Decode(){
+		int index = 0;
+		
+		
+		return index;
+	}
+	
+}

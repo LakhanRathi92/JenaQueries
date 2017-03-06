@@ -16,60 +16,77 @@ public class fastRDFCheck {
 
     public static void main(String[] args)
     {
-    	Model m = ModelFactory.createDefaultModel() ;
-        // read into the model.
     	
+    	Boolean FASTRDF = false;
     	
-    	try {
-			m.read(new FileInputStream("published.rdf"),null,"TTL");
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        // Alternatively, use the RDFDataMgr, which reads from the web,
-        // with content negotiation.  Plain names are assumed to be 
-        // local files where file extension indicates the syntax.  
-        
-    	
-        m.write(System.out);
-        
-        /*
-         * READ Query
-         * */
-        
-        BufferedReader br = null;
-        String everything = null;
-		
-        try {
-        	/* query2.txt for whole rdf document */
-        	/*query3.txt for UID's*/
-			br = new BufferedReader(new FileReader("query3.txt"));
-			
-			try {
-				everything = IOUtils.toString(br);
-			} catch (IOException e) {
+    	if (FASTRDF)
+    	{
+	    	Model m = ModelFactory.createDefaultModel() ;
+	        // read into the model.
+	    	
+	    	
+	    	try {
+				m.read(new FileInputStream("published.rdf"),null,"TTL");
+			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} catch (FileNotFoundException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
-		
-        
-        /**/
-        
-        System.out.println("Query : " + everything);
-        
-        String queryString = everything;
-        Query query = QueryFactory.create(queryString) ;
-        
-        try (QueryExecution qexec = QueryExecutionFactory.create(query, m)) {
-          
-        ResultSet results = qexec.execSelect() ;        
-        String string_Result = ResultSetFormatter.asText(results);
-        System.out.println(string_Result);
-        }
+	        // Alternatively, use the RDFDataMgr, which reads from the web,
+	        // with content negotiation.  Plain names are assumed to be 
+	        // local files where file extension indicates the syntax.  
+	        
+	    	
+	        m.write(System.out);
+	        
+	        /*
+	         * READ Query
+	         * */
+	        
+	        BufferedReader br = null;
+	        String everything = null;
+			
+	        try {
+	        	/* query2.txt for whole rdf document */
+	        	/*query3.txt for UID's*/
+				br = new BufferedReader(new FileReader("query3.txt"));
+				
+				try {
+					everything = IOUtils.toString(br);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} catch (FileNotFoundException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+			
+	        
+	        /*query*/
+	        
+	        System.out.println("Query : " + everything);
+	        
+	        String queryString = everything;
+	        Query query = QueryFactory.create(queryString) ;
+	        
+	        try (QueryExecution qexec = QueryExecutionFactory.create(query, m)) {
+	          
+	        ResultSet results = qexec.execSelect() ;        
+	        
+	        /*fastRDFUID*/
+	        
+	        String string_Result = ResultSetFormatter.asText(results);
+	        System.out.println(string_Result);
+	        }
+    	}
+    	//Encoder
+    	else
+    	{
+    		VariableLengthEnc_Dec.Encode(10);
+    		VariableLengthEnc_Dec.Encode(128);
+    		VariableLengthEnc_Dec.Encode(256);
+    		
+    	}
     } 
 }
 

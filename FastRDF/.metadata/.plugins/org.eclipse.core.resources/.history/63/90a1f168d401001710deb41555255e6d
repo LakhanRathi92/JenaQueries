@@ -1,0 +1,17 @@
+
+public class VariableLengthEnc_Dec {
+
+	
+	public static int Encode(){
+		
+		
+		
+		return 0;
+	}
+	
+	
+	public static void Decode(){
+		
+	}
+	
+}

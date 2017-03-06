@@ -1,0 +1,20 @@
+
+public class VariableLengthEnc_Dec {
+
+	
+	public static void Encode(int bSize){
+		int byteSize = bSize;
+		
+		
+		
+	}
+	
+	
+	public static int Decode(){
+		int index = 0;
+		
+		
+		return index;
+	}
+	
+}
