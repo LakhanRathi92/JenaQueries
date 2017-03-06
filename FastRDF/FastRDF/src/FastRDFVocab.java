@@ -35,10 +35,6 @@ public class FastRDFVocab {
     
     /** <p>uid is a fastRDF data type</p> */
     public static final Resource uid = m_model.createResource( "http://dfki.de/fastRDF#uid" );
-    
-    
-    
-    /*Edited Manually to check fastRDF*/
-    
+     
     public static final Resource sensor = m_model.createResource( "http://dfki.de/fastRDF#sensor" );
 }
