@@ -1,0 +1,5 @@
+public class TableRow {
+	private int uid;
+	private int offset;
+	private int size;
+}

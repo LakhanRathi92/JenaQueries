@@ -1,0 +1,11 @@
+public class TableRow {
+	private int uid;
+	private short offset;
+	private short size;
+	
+	public void static createRow(int id, int off, int siz){
+		uid = id;
+		offset = off;
+		size = siz;
+	}
+}

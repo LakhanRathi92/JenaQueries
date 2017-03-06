@@ -1,0 +1,57 @@
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+
+import org.apache.jena.ext.com.google.common.collect.Table;
+
+public class BinaryTranslationTable implements Serializable{
+	private static ArrayList<TableRow> Table = new ArrayList<TableRow>();
+	private static ByteArrayOutputStream bos = new ByteArrayOutputStream();
+	
+	public static void addElement(TableRow rowAdd){
+		Table.add(rowAdd);				
+	}
+	public static byte[] serializeTable(){
+		ObjectOutput out = null;
+		byte[] tableInByteArr = null;
+	    try {
+			out = new ObjectOutputStream(bos);
+			out.writeObject(Table);
+			out.flush();
+			tableInByteArr = bos.toByteArray();
+        	bos.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}			  
+		return tableInByteArr;
+	}
+	
+}
+
+/*READ
+ * 
+ * ByteArrayInputStream bis = new ByteArrayInputStream(yourBytes);
+ObjectInput in = null;
+try {
+  in = new ObjectInputStream(bis);
+  Object o = in.readObject(); 
+  ...
+} finally {
+  try {
+    if (in != null) {
+      in.close();
+    }
+  } catch (IOException ex) {
+    // ignore close exception
+  }
+}
+ * 
+ * 
+ * */
+
+
+

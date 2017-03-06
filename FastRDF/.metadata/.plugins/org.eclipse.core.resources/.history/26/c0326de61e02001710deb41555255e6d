@@ -1,0 +1,24 @@
+import java.io.Serializable;
+import java.util.ArrayList;
+
+import org.apache.jena.ext.com.google.common.collect.Table;
+
+public class BinaryTranslationTable implements Serializable{
+	private static ArrayList<Row> Table = new ArrayList<Row>();
+	private static ByteArrayOutputStream bos = new ByteArrayOutputStream();
+	
+	public static void addElement(Row rowAdd){
+		Table.add(rowAdd);				
+	}
+	public static void serializeTable(){
+		
+	}
+}
+
+
+class Row {
+	int uid;
+	short offset;
+	short size;
+}
+

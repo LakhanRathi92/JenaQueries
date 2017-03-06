@@ -1,0 +1,5 @@
+public class Row {
+	int uid;
+	short offset;
+	short size;
+}

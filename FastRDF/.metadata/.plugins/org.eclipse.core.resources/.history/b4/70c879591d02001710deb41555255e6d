@@ -1,0 +1,24 @@
+import java.io.Serializable;
+
+public class BinaryTranslationTable implements Serializable{
+
+	
+	
+	public static Boolean addElement(){
+		Boolean result = true;
+		
+		
+		
+		
+		
+		return result;
+	}
+}
+
+
+class Row {
+	int uid;
+	short offset;
+	short size;
+}
+

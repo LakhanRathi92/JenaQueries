@@ -17,7 +17,7 @@ public class fastRDFCheck {
     public static void main(String[] args)
     {
     	
-    	Boolean FASTRDF = false;
+    	Boolean FASTRDF = true;
     	
     	if (FASTRDF)
     	{

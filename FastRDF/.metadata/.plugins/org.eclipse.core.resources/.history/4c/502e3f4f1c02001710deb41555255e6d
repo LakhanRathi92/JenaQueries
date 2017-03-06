@@ -1,0 +1,9 @@
+import java.io.Serializable;
+
+public class BinaryTranslationTable implements Serializable{
+	
+}
+
+class addElement{
+	
+}
